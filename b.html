@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./template-web.js"></script>
+</head>
+<body>
+<script id="tpl-header" type="text/html">
+</script>
+<div id="header"></div>
+<div id="body">
+</div>
+<div>b.html</div>
+<script src="header.js"></script>
+<script>
+  fetch('/header.html').then(res => res.text())
+    .then(text => {
+      // console.log(text)
+      window.template("tpl-header", text) // compile & cache
+      const header = document.getElementById("header")
+      header.innerHTML = window.template("tpl-header", {
+        user: {
+          name: location.href
+        },
+        pageName: location.href
+      }) // use
+    })
+</script>
+</body>
+</html>

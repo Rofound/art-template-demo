@@ -1,0 +1,22 @@
+{{if user}}
+<h2>{{user.name}}</h2>
+{{/if}}
+
+<button
+        {{if pageName.includes("index.html")}}
+class="red"
+{{/if}}
+onclick="toggle('index.html', this)"
+>index.html button</button>
+<button
+
+        {{if pageName.includes("b.html")}}
+class="red"
+{{/if}}
+        onclick="toggle('b.html', this)">b.html button</button>
+
+<style>
+    .red {
+        color: green;
+    }
+</style>
